@@ -14,5 +14,6 @@ puts "What is your store name?"
 print ">"
 user_input = gets.chomp
 user_store = Store.create(name: "#{user_input}")
-puts user_store.errors[:name]
-puts user_store.errors[:annual_revenue]
+user_store.errors.full_messages.each do |message|
+  puts message
+end
